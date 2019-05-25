@@ -1,5 +1,6 @@
 <li class="list-group-item">
-   <h4> Appareil : {{ appareilName}} -- Status : {{getStatus()}}</h4>
+  <div style="width: 20px; height: 20px; background-color: red;" *ngIf="getStatus()=='éteint'"></div> 
+  <h4>Appareil : {{ appareilName}} -- Status : {{getStatus()}}</h4>
    <div class="row">
      <div class="col-xs-6">
         <label for="name">Name</label>
