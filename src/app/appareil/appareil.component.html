@@ -1,6 +1,11 @@
-<li class="list-group-item">
+<li [ngClass]="{
+'list-group-item':true,
+'list-group-item-success':getStatus()==='allumé',
+'list-group-item-danger':getStatus()==='éteint'
+}"
+class="list-group-item">
   <div style="width: 20px; height: 20px; background-color: red;" *ngIf="getStatus()=='éteint'"></div> 
-  <h4>Appareil : {{ appareilName}} -- Status : {{getStatus()}}</h4>
+  <h4 [ngStyle]="{color:getColor()}">Appareil : {{ appareilName}} -- Status : {{getStatus()}}</h4>
    <div class="row">
      <div class="col-xs-6">
         <label for="name">Name</label>
