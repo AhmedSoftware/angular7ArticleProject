@@ -1,3 +1,14 @@
 <li class="list-group-item">
-   it is my first componement
+   <h4> Appareil : {{ appareilName}} -- Status : {{getStatus()}}</h4>
+   <div class="row">
+     <div class="col-xs-6">
+        <label for="name">Name</label>
+        <input type="text" id="name" class="form-control" [(ngModel)]="appareilName">
+     </div>
+     <div class="col-xs-6">
+       <label for="status"> status </label>
+       <input type="text" name="status" id="status" class="form-control"[(ngModel)]="appareilStatus">
+     </div>
+   </div>
+  
 </li>

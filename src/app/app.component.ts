@@ -7,6 +7,13 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   isAuth=false;
+  appareilOne ='Machine à laver';
+  appareilTwo = 'Frigo';
+  appareilThree = 'Ordinateur';
+  appareilTwoStatus="allumé";
+
+
+
   title = 'mon-projet-angular';
   constructor(){
     setTimeout(()=>{
