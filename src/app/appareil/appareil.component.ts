@@ -6,8 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./appareil.component.scss']
 })
 export class AppareilComponent implements OnInit {
-
-  constructor() { }
+  
+  constructor() { 
+   
+  }
 
   ngOnInit() {
   }
