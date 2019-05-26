@@ -19,6 +19,7 @@ import { SingleAppareilComponent } from './single-appareil/single-appareil.compo
 import { LoginService } from './login/login.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
 import { AuthCuardService } from './login/auth-cuard.service';
+import { HttpClientModule} from '@angular/common/http'
 
 
 const appRoutes:Routes=[
@@ -42,6 +43,7 @@ const appRoutes:Routes=[
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),

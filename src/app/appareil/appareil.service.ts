@@ -1,9 +1,13 @@
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpHandler} from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root'
 })
-export class AppareilService {
+export class AppareilService  {
+
+  constructor(private http:HttpClient){
+  }
 
   appareils=[
     {
@@ -34,6 +38,21 @@ export class AppareilService {
        appareil.status="éteint";
      }
      
+   }
+   
+   putAll(){
+
+   }
+
+   getall(){
+     this.http.get("rl",{responseType:"json"}).subscribe(
+       (response)=>{
+         console.log(response);
+       },()=>{
+         console.log("erreur");
+       },()=>{
+         console.log("complete response");
+       })
    }
 
    onSwitch(i:number){
