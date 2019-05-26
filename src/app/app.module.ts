@@ -17,13 +17,15 @@ import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
 import { LoginService } from './login/login.service';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { AuthCuardService } from './login/auth-cuard.service';
 
 
 const appRoutes:Routes=[
-  {path:'appareils',component:AppareilViewComponent},
+  {path:'appareils',canActivate:[AuthCuardService] ,component:AppareilViewComponent},
   {path:'login',component:LoginComponent},
-  {path:'appareils/:id',component:SingleAppareilComponent},
-  {path:'',component:AppareilViewComponent}
+  {path:'appareils/:id',canActivate:[AuthCuardService],component:SingleAppareilComponent},
+  {path:'',component:LoginComponent}
 ];
 
 
@@ -43,11 +45,13 @@ const appRoutes:Routes=[
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    DragDropModule
   ],
   providers: [
     AppareilService,
-    LoginService
+    LoginService,
+    AuthCuardService
   ],
   bootstrap: [AppComponent]
 })
