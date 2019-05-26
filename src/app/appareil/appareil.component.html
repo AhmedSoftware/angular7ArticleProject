@@ -1,3 +1,4 @@
+
 <li [ngClass]="{
 'list-group-item':true,
 'list-group-item-success':getStatus()==='allumé',
@@ -5,12 +6,13 @@
 }">
   <button (click)="appareilClick()" [ngClass]="{'btn':true, 'btn-danger':toglebtn(),'btn-success':!toglebtn()}">{{namebtn}}</button> 
   <h4 [ngStyle]="{color:getColor()}">Appareil : {{ appareilName}} -- Status : {{getStatus()}}</h4>
+  <a [routerLink]="[id]">Détail</a>
   <div class="row">
-     <div class="col-xs-6">
+     <div class="col-sm-3">
         <label for="name">Name</label>
         <input type="text" id="name" class="form-control" [(ngModel)]="appareilName">
      </div>
-     <div class="col-xs-6">
+     <div class="col-sm-3">
        <label for="status"> status </label>
        <input type="text" name="status" id="status" class="form-control"[(ngModel)]="appareilStatus">
      </div>

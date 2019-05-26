@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { LoginService } from './login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -7,9 +9,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  loginStatus:boolean;
+
+  constructor( private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
+    this.loginStatus=this.loginService.isAuth;
+  }
+
+  onSignIn(){
+    this.loginService.signIn().then(
+      ()=>{
+        console.log('Sign in Successfull!');
+        this.loginStatus=this.loginService.isAuth;
+        this.router.navigate(['appareils']);
+      }
+    );
+  }
+
+  onSignOut(){
+    this.loginService.signOut();
+    this.loginStatus=this.loginService.isAuth;
+    
   }
 
 }

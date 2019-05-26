@@ -1,9 +1,11 @@
+
 <h2> Mes appareils</h2>
 <h2> Mise à jour : {{ lastUpdate |async|date :'short'|lowercase}}</h2>
 <ul *ngFor ="let appareil of appareils; let i=index" class="list-group">
   <app-appareil [appareilName]="appareil.name" 
                 [appareilStatus]="appareil.status"
-                [index]="i"></app-appareil>
+                [index]="i"
+                [id]="appareil.id"></app-appareil>
   <br>
 </ul>
 <button type="button" class="btn btn-sm btn-success mr-2 " 

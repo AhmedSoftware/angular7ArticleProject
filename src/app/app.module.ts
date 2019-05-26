@@ -15,11 +15,14 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import {Routes} from '@angular/router';
 import {RouterModule} from '@angular/router';
+import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
+import { LoginService } from './login/login.service';
 
 
 const appRoutes:Routes=[
   {path:'appareils',component:AppareilViewComponent},
   {path:'login',component:LoginComponent},
+  {path:'appareils/:id',component:SingleAppareilComponent},
   {path:'',component:AppareilViewComponent}
 ];
 
@@ -30,7 +33,8 @@ const appRoutes:Routes=[
     AppareilComponent,
     LoginComponent,
     AppareilViewComponent,
-    HeaderComponent
+    HeaderComponent,
+    SingleAppareilComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,8 @@ const appRoutes:Routes=[
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    AppareilService
+    AppareilService,
+    LoginService
   ],
   bootstrap: [AppComponent]
 })
