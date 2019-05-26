@@ -1,28 +1,10 @@
+<app-header></app-header>
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <h2> Mes appareils</h2>
-      <h2> Mise à jour : {{ lastUpdate |async|date :'short'|lowercase}}</h2>
-      <ul *ngFor ="let appareil of appareils; let i=index" class="list-group">
-        <app-appareil [appareilName]="appareil.name" 
-                      [appareilStatus]="appareil.status"
-                      [index]="i"></app-appareil>
-        <br>
-      </ul>
-      
-          <button type="button" class="btn btn-sm btn-success mr-2 " 
-          [disabled]="!isAuth"
-          (click)="onAllumers()">Tout allumer
-          </button>
-          <button type="button" class="btn btn-sm btn-danger mr-2"
-          [disabled]="!isAuth"
-          (click)="onEteints()"> Tous éteints
-
-          </button>
-    
+    <div class="col-md-12">
+        <app-appareil-view></app-appareil-view>      
     </div>
   </div>
   <br>
   <a href="https://www.neobux.com/?r=AhmedALI95"><img src="https://www.neobux.com/imagens/banner9/?u=AhmedALI95&u3=30853936" width="468" height="60"></a>
 </div>
-
