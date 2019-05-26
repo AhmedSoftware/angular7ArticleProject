@@ -13,6 +13,16 @@ import { HeaderComponent } from './header/header.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import {Routes} from '@angular/router';
+import {RouterModule} from '@angular/router';
+
+
+const appRoutes:Routes=[
+  {path:'appareils',component:AppareilViewComponent},
+  {path:'login',component:LoginComponent},
+  {path:'',component:AppareilViewComponent}
+];
+
 
 @NgModule({
   declarations: [
@@ -28,7 +38,8 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     FormsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     AppareilService
