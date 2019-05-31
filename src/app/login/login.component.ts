@@ -1,20 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,AfterViewInit } from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
+import { $ } from 'protractor';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit,AfterViewInit {
 
   loginStatus:boolean;
+
+
 
   constructor( private loginService:LoginService,private router:Router) { }
 
   ngOnInit() {
     this.loginStatus=this.loginService.isAuth;
+    
   }
 
   onSignIn(){
@@ -25,6 +30,7 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['appareils']);
       }
     );
+
   }
 
   onSignOut(){
@@ -32,5 +38,6 @@ export class LoginComponent implements OnInit {
     this.loginStatus=this.loginService.isAuth;
     
   }
+  
 
 }

@@ -22,6 +22,8 @@ import { AuthCuardService } from './login/auth-cuard.service';
 import { HttpClientModule} from '@angular/common/http'
 
 
+
+
 const appRoutes:Routes=[
   {path:'appareils',canActivate:[AuthCuardService] ,component:AppareilViewComponent},
   {path:'login',component:LoginComponent},
