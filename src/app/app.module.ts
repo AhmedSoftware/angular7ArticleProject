@@ -13,8 +13,6 @@ import { HeaderComponent } from './header/header.component';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import {Routes} from '@angular/router';
-import {RouterModule} from '@angular/router';
 import { SingleAppareilComponent } from './single-appareil/single-appareil.component';
 import { LoginService } from './login/login.service';
 import {DragDropModule} from '@angular/cdk/drag-drop';
@@ -24,12 +22,7 @@ import { HttpClientModule} from '@angular/common/http'
 
 
 
-const appRoutes:Routes=[
-  {path:'appareils',canActivate:[AuthCuardService] ,component:AppareilViewComponent},
-  {path:'login',component:LoginComponent},
-  {path:'appareils/:id',canActivate:[AuthCuardService],component:SingleAppareilComponent},
-  {path:'',component:LoginComponent}
-];
+
 
 
 @NgModule({
@@ -49,7 +42,7 @@ const appRoutes:Routes=[
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     DragDropModule
   ],
   providers: [

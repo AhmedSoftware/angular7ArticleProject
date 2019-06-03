@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { interval,Subscription} from 'rxjs';
 import { LoginService } from '../login/login.service';
+import { interval, Subscription } from 'rxjs';
 
 
 @Component({
@@ -12,28 +12,22 @@ export class HeaderComponent implements OnInit {
 
   constructor(private loginService:LoginService) { }
   secondes:number;
-  counterSubscription: Subscription;
+  conteurSubscription:Subscription;
 
   ngOnInit() {
-    
-      const counter =  interval(1000);
-      this.counterSubscription=counter.subscribe(
-        (value) => {
-          this.secondes = value;
-        },
-        (error) => {
-          console.log('Uh-oh, an error occurred! : ' + error);
-        },
-        () => {
-          console.log('Observable complete!');
-        }
-      );
+    this.loginService.secondesSubject.subscribe((secondes:number)=>{
+         this.secondes=secondes;
+    });
+    const conteur  = interval(1000);
+    this.conteurSubscription=conteur.subscribe((valule)=>{
+      this.loginService.emitSecondedesSubject();
+    })
+  }
 
-      
+  ngOnDestroy(){
+     this.conteurSubscription.unsubscribe();
   }
-  ngOnDestroy() {
-    this.counterSubscription.unsubscribe();
-  }
+  
   
 
   

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppareilService } from '../appareil/appareil.service';
 import { $ } from 'protractor';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-appareil-view',
@@ -28,7 +29,13 @@ export class AppareilViewComponent implements OnInit {
      this.appareilService.switchOfAlll();
    } 
   ngOnInit() {
-    this.appareils=this.appareilService.appareils;
+   this.appareilService.appareilSubject.subscribe(
+     (appareils:any[])=>{
+       this.appareils=appareils;
+     }
+   );
+   this.appareilService.emitAppareilSubject();
+
   }
 
   ngAfterViewInit(){
