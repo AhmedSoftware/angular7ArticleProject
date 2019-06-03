@@ -1,4 +1,4 @@
-import { Component, OnInit,AfterViewInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { LoginService } from './login.service';
 import { Router } from '@angular/router';
 import { $ } from 'protractor';
@@ -9,7 +9,7 @@ import { $ } from 'protractor';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit,AfterViewInit {
+export class LoginComponent implements OnInit{
 
   loginStatus:boolean;
 
