@@ -1,4 +1,3 @@
-<h2>Authentification</h2>
-<button class="btn btn-success" (click)="onSignIn()" *ngIf="!loginStatus">se connecter</button>
-<button class="btn btn-danger" (click)="onSignOut()" *ngIf="loginStatus">Se déconnecter</button>
+<button routerLink="appareils" class="btn btn-success" (click)="onSignIn()" *ngIf="!loginStatus">se connecter</button>
+<button routerLink="login" class="btn btn-danger" (click)="onSignOut()" *ngIf="loginStatus">Se déconnecter</button>
 
